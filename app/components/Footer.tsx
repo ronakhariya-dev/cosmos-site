@@ -21,6 +21,7 @@ export default function Footer() {
         {[
           { label: 'Portfolio', href: '#' },
           { label: 'LinkedIn', href: 'https://linkedin.com/in/ronak-hariya-96b8a5312' },
+          { label: 'GitHub', href: 'https://github.com/ronakhariya-dev' },
           { label: 'Email', href: 'mailto:ronak.hariya.dev@gmail.com' },
         ].map(l => (
           <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" style={{
