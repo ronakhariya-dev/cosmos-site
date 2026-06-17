@@ -21,7 +21,6 @@ export default function Footer() {
         {[
           { label: 'Portfolio', href: '#' },
           { label: 'LinkedIn', href: 'https://linkedin.com/in/ronak-hariya-96b8a5312' },
-          { label: 'GitHub', href: 'https://github.com/ronakhariya-dev' },
           { label: 'Email', href: 'mailto:ronak.hariya.dev@gmail.com' },
         ].map(l => (
           <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" style={{
@@ -35,7 +34,7 @@ export default function Footer() {
         ))}
       </div>
       <div style={{ fontFamily: 'Space Mono, monospace', fontSize: '0.58rem', color: 'rgba(232,244,253,0.15)', marginTop: '0.5rem' }}>
-        © {new Date().getFullYear()} Ronak Hariya · Pune, India · Built with Next.js & ✦
+        © {new Date().getFullYear()} Ronak Hariya · Pune, India 
       </div>
     </footer>
   )
