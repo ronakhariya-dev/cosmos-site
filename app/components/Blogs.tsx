@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 import { blogPosts } from '../data/siteData'
 
 const categoryLabel = { cosmos: 'COSMOS', learning: 'LEARNING', photography: 'PHOTOGRAPHY' }
@@ -30,13 +31,14 @@ export default function Blogs() {
 }
 
 function BlogCard({ post }: { post: typeof blogPosts[0] }) {
-  return (
+  const inner = (
     <div style={{
       background: 'var(--surface)', border: '1px solid rgba(79,195,247,0.07)',
       borderRadius: '12px', overflow: 'hidden',
       opacity: post.comingSoon ? 0.55 : 1,
       transition: 'all 0.3s',
       cursor: post.comingSoon ? 'default' : 'pointer',
+      height: '100%',
     }}
       onMouseEnter={e => {
         if (!post.comingSoon) {
@@ -88,12 +90,19 @@ function BlogCard({ post }: { post: typeof blogPosts[0] }) {
         {!post.comingSoon ? (
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span style={{ fontFamily: 'Space Mono, monospace', fontSize: '0.58rem', color: 'rgba(232,244,253,0.25)' }}>{post.date}</span>
-            <span style={{ fontFamily: 'Space Mono, monospace', fontSize: '0.6rem', color: post.color }}>Read →</span>
+            <span style={{ fontFamily: 'Space Mono, monospace', fontSize: '0.6rem', color: post.color }}>Read → </span>
           </div>
         ) : (
           <div style={{ height: '2px', background: 'linear-gradient(to right, rgba(255,255,255,0.05), transparent)', borderRadius: '1px' }} />
         )}
       </div>
     </div>
+  )
+
+  if (post.comingSoon) return inner
+  return (
+    <Link href={`/blog/${post.id}`} style={{ textDecoration: 'none', display: 'block' }}>
+      {inner}
+    </Link>
   )
 }

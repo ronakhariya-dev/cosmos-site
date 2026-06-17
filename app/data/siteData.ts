@@ -328,6 +328,14 @@ export interface BlogPost {
   emoji: string
   color: string
   comingSoon?: boolean
+  content?: BlogSection[]
+}
+
+export interface BlogSection {
+  type: 'intro' | 'heading' | 'para' | 'quote' | 'list' | 'divider' | 'callout'
+  text?: string
+  items?: string[]
+  label?: string
 }
 
 export const blogPosts: BlogPost[] = [
@@ -341,6 +349,31 @@ export const blogPosts: BlogPost[] = [
     tags: ['Perspective', 'Software', 'Systems Thinking'],
     emoji: '💡',
     color: '#4FC3F7',
+    content: [
+      { type: 'intro', text: 'There is a moment — usually around 1 AM, lying on a rooftop somewhere far from city lights — when the universe stops being abstract and becomes viscerally real. The scale of it. The silence. The fact that the photons hitting your eyes left some of those stars thousands of years ago. It\'s disorienting in the best way. And slowly, over years of stargazing, I realized that feeling was changing how I think as an engineer.' },
+      { type: 'heading', text: 'Scale Breaks Your Assumptions' },
+      { type: 'para', text: 'In software, we talk about scale constantly. Millions of users. Terabytes of data. Thousands of requests per second. And yet the scale feels manageable — it\'s numbers on a dashboard. Astronomy forces you to internalize scale in a way that no monitoring tool can.' },
+      { type: 'para', text: 'The observable universe is 93 billion light-years across. The nearest star is 4.2 light-years away — a distance so vast that if you travelled at the speed of our fastest spacecraft, you\'d arrive in roughly 76,000 years. When you genuinely sit with that, something shifts in how you think about system design. You stop assuming your mental model is complete. You stop assuming the edge cases you\'ve thought of are all the edge cases that exist.' },
+      { type: 'quote', text: 'The universe is not only queerer than we suppose, but queerer than we can suppose.', label: '— J.B.S. Haldane' },
+      { type: 'heading', text: 'Distributed Systems and Cosmic Structures' },
+      { type: 'para', text: 'The more I studied astrophysics, the more I saw familiar patterns. Galaxies are not uniform blobs of stars — they\'re structured systems with dense cores, spiral arms, and vast empty voids between them. The cosmic web, the large-scale structure of the universe, looks remarkably like a distributed system: dense nodes connected by filaments, with enormous empty spaces in between.' },
+      { type: 'para', text: 'Microservices, event-driven architecture, API gateways — these are just human attempts to organize complexity the way nature does. Clusters of responsibility, message passing between them, eventual consistency across the whole. When I look at a system architecture diagram now, I sometimes see galaxies.' },
+      { type: 'callout', label: 'The Parallel', text: 'A galaxy cluster and a microservices mesh both solve the same fundamental problem: how do you maintain coherence across a massively distributed system where no single node has the full picture?' },
+      { type: 'heading', text: 'Embracing Uncertainty' },
+      { type: 'para', text: 'Here\'s something that took me a long time to accept as an engineer: uncertainty is not a problem to be solved. It\'s a property of complex systems to be managed. Astronomy taught me this. We don\'t know what dark matter is. We don\'t fully understand what happens inside a black hole. We have theories, models, and evidence — but not certainty.' },
+      { type: 'para', text: 'The best astrophysicists I\'ve read aren\'t paralyzed by what they don\'t know. They build the best model they can with available data, make predictions, test them, and update. Sound familiar? That\'s just good engineering.' },
+      { type: 'list', items: [
+        'You don\'t need to understand everything before you build something useful',
+        'Observability matters — if you can\'t measure it, you can\'t reason about it',
+        'Emergent complexity is real — simple rules produce behaviours no one designed',
+        'Humility about your models is a professional skill, not a weakness',
+      ]},
+      { type: 'heading', text: 'The Slowness Is the Point' },
+      { type: 'para', text: 'Software moves fast. Deploy on Friday. Ship the feature. Iterate in two-week sprints. Astronomy moves at a completely different pace. Some phenomena take millions of years to unfold. A pulsar spins down by a few microseconds per year. A stellar nursery takes 10 million years to form stars.' },
+      { type: 'para', text: 'Spending time with that slowness recalibrates something in me. It reminds me that not everything needs to ship this sprint. Some of the most important things — a deep technical foundation, a well-understood domain, genuine expertise — take years to build. The universe isn\'t in a hurry. On a good night, under a dark sky, neither am I.' },
+      { type: 'divider' },
+      { type: 'para', text: 'I don\'t think everyone needs to be interested in astronomy to be a better engineer. But I do think everyone benefits from having something that humbles them — something that regularly reminds them that they are a small, curious creature in an incomprehensibly large universe, doing their best to understand it. For me, that thing is the night sky.' },
+    ],
   },
   {
     id: 'b2',
@@ -352,6 +385,35 @@ export const blogPosts: BlogPost[] = [
     tags: ['Astrophotography', 'Lessons', 'Milky Way'],
     emoji: '📷',
     color: '#FFB300',
+    content: [
+      { type: 'intro', text: 'I had been wanting to photograph the Milky Way for two years. I\'d watched dozens of YouTube tutorials. I\'d downloaded the PhotoPills app. I\'d chosen my location carefully — a hillside near Sahyadri, far from Pune\'s light pollution. I had a plan. What I did not have, it turned out, was any idea what I was actually doing.' },
+      { type: 'heading', text: 'Mistake #1: I Trusted the Weather App' },
+      { type: 'para', text: 'Clear skies, the forecast said. And for the first hour, it was correct — I could see the galactic core rising above the ridge, that faint smear of light that I\'d only ever seen in other people\'s photographs. I was genuinely emotional. Then came the clouds. Not gradually. One minute: stars. Next minute: grey nothing.' },
+      { type: 'para', text: 'What I know now: weather apps are useless for astrophotography planning. You need dedicated tools — Clear Outside, Astrospheric, or Meteoblue. These show cloud cover in layers, atmospheric transparency, and seeing conditions. "Clear skies" from a general weather app means nothing if there\'s high-altitude cirrus at 8,000 metres.' },
+      { type: 'heading', text: 'Mistake #2: The Dew Problem' },
+      { type: 'para', text: 'I\'d set up my camera on a tripod and stepped away to let my eyes adjust. When I came back thirty minutes later, my first frame looked like I\'d photographed fog. The lens had completely fogged over with dew. I wiped it clean, took one frame, and it fogged again within ten minutes.' },
+      { type: 'para', text: 'Maharashtra nights near monsoon season are humid. Very humid. A dew heater strap — a resistive heater that wraps around the lens barrel — is not optional in these conditions. It costs about ₹1,500. I bought one the next day.' },
+      { type: 'callout', label: 'Field Lesson', text: 'Always carry a dew heater, a dry microfibre cloth, and hand warmers. If your lens fogs, do not wipe repeatedly — you will leave smear marks. Let it clear, then wipe once in a circular motion from centre outward.' },
+      { type: 'heading', text: 'Mistake #3: White Balance Set to Auto' },
+      { type: 'para', text: 'This one hurt to discover in post-processing. Auto white balance in night photography is a disaster. The camera guesses — and it guesses orange, because it\'s trying to compensate for the faint warm glow of distant city lights on the horizon. My entire Milky Way was the colour of a sodium streetlamp.' },
+      { type: 'para', text: 'The fix is simple: set white balance to a fixed Kelvin value before you shoot. I now use 3900K as a starting point and adjust in Lightroom. Shoot in RAW — always RAW — so you can correct it non-destructively anyway.' },
+      { type: 'heading', text: 'Mistake #4: The Car' },
+      { type: 'para', text: 'At 2:17 AM, a car crept past on the unpaved track below my position, headlights on full beam, and drove directly through my 4-minute exposure. I will not repeat the words I said at that moment. The frame was completely blown out on one side — a bright white streak through the frame.' },
+      { type: 'para', text: 'There is no fix for this in post. You reshoot. If you\'re on a remote location where vehicle traffic is possible, position yourself so headlights would travel parallel to your frame, not into it. Or come back the following night. Astrophotography teaches patience in ways that nothing else does.' },
+      { type: 'heading', text: 'What Actually Worked' },
+      { type: 'para', text: 'Despite everything, I got three usable frames between 3:15 and 4:00 AM. The galactic core was above the horizon, the air had cooled and the dew problem eased slightly, and the road below was quiet. The exposure I ended up using: f/2.8, ISO 3200, 20 seconds. Nothing technically impressive. But it was mine, and I\'d earned it.' },
+      { type: 'list', items: [
+        'Use PhotoPills or Stellarium to plan exact galactic core rise time and azimuth',
+        'Check moon phase — new moon ± 5 days gives you the darkest skies',
+        'Arrive 45 minutes early to set up and let your eyes dark-adapt',
+        'Bring a red torch — white light destroys your night vision for 20+ minutes',
+        'Use the 500 rule for shutter speed: 500 ÷ focal length = max seconds before star trails',
+        'Focus on a bright star at infinity, zoom in on live view to check sharpness',
+        'Shoot a test frame at ISO 6400 first to check composition, then drop ISO for final shots',
+      ]},
+      { type: 'divider' },
+      { type: 'para', text: 'I\'ve been back to that hillside four times since. Each time I get a little better, make a few fewer mistakes, and come home with frames that make me less embarrassed. The Milky Way photograph I\'m proud of — genuinely proud of — hasn\'t happened yet. I\'m okay with that. The process is the point.' },
+    ],
   },
   {
     id: 'b3',
@@ -363,6 +425,34 @@ export const blogPosts: BlogPost[] = [
     tags: ['Einstein', 'GR', 'Spacetime', 'Physics'],
     emoji: '🧠',
     color: '#7C4DFF',
+    content: [
+      { type: 'intro', text: 'Let me start with what most popular explanations get wrong. The "bowling ball on a rubber sheet" analogy — where mass creates a dent in spacetime and other objects roll into that dent — is everywhere. It\'s on every science YouTube channel, every pop-sci book. And it\'s misleading, because it uses gravity (the ball pressing down) to explain gravity. It also only shows 2D space, when spacetime is four-dimensional. Here\'s a better way in.' },
+      { type: 'heading', text: 'Start Here: What is Spacetime?' },
+      { type: 'para', text: 'Before Einstein, space and time were separate things. Newton thought of space as a fixed, absolute stage — an infinite three-dimensional grid that existed whether anything was in it or not. Time ticked uniformly everywhere, for everyone, simultaneously.' },
+      { type: 'para', text: 'Special Relativity (1905) destroyed this picture. Einstein showed that space and time are not separate — they\'re woven together into a single four-dimensional fabric called spacetime. And crucially, measurements of space and time depend on the observer\'s state of motion. Two observers moving relative to each other will genuinely disagree on the length of an object and the time between two events. Neither is wrong — they\'re measuring different slices of the same spacetime.' },
+      { type: 'quote', text: 'The distinction between past, present, and future is only a stubbornly persistent illusion.', label: '— Albert Einstein' },
+      { type: 'heading', text: 'The Key Insight of General Relativity' },
+      { type: 'para', text: 'General Relativity (1915) goes further. It says: mass and energy curve spacetime. And objects moving through curved spacetime follow the straightest possible paths — called geodesics. What we experience as gravity is not a force pulling objects together. It\'s the geometry of spacetime itself.' },
+      { type: 'para', text: 'Here\'s the thought experiment that unlocks it. Imagine you\'re in a sealed box with no windows, accelerating upward in empty space at 9.8 m/s². You drop a ball — it falls to the floor. Now imagine you\'re in that same box, stationary, on the surface of the Earth. You drop a ball — it falls to the floor. Einstein\'s great insight was that these two situations are physically identical. There is no local experiment you can do to tell them apart. This is the Equivalence Principle — the cornerstone of GR.' },
+      { type: 'callout', label: 'The Equivalence Principle', text: 'Gravitational acceleration and inertial acceleration are locally indistinguishable. This means gravity is not a force — it\'s a consequence of being in curved spacetime.' },
+      { type: 'heading', text: 'What "Curved Spacetime" Actually Means' },
+      { type: 'para', text: 'Curvature in spacetime is not just about space bending — it\'s primarily about time running at different rates at different locations. Near a massive object, time runs slower. This is gravitational time dilation, and it\'s not just theoretical — your phone\'s GPS satellites have to correct for it. The satellites\' clocks run slightly faster in orbit (weaker gravity) and slightly slower due to their speed (special relativistic effect). Without those corrections, GPS would drift by about 10 kilometres per day.' },
+      { type: 'para', text: 'The reason objects fall toward massive bodies is that they\'re following the straightest possible path through a spacetime where time flows more slowly near mass. The future of a stationary object near Earth points "downward" in spacetime — toward where time runs slower — and that\'s what we experience as falling.' },
+      { type: 'heading', text: 'The Einstein Field Equations' },
+      { type: 'para', text: 'GR is summarized in a set of 10 coupled nonlinear partial differential equations, which look terrifying but say something conceptually simple: the curvature of spacetime on the left equals the distribution of mass-energy on the right. Mass tells spacetime how to curve. Spacetime tells mass how to move.' },
+      { type: 'list', items: [
+        'Gravitational waves — ripples in spacetime caused by accelerating masses (confirmed by LIGO in 2015)',
+        'Black holes — regions where spacetime curvature becomes so extreme that escape velocity exceeds light speed',
+        'Gravitational lensing — light bending around massive objects (first confirmed by Eddington in 1919)',
+        'The expansion of the universe — GR predicts it; Hubble confirmed it observationally',
+        'GPS accuracy — satellites must apply relativistic corrections to function correctly',
+      ]},
+      { type: 'heading', text: 'The Part That Still Keeps Me Up at Night' },
+      { type: 'para', text: 'Here is what I find genuinely mind-bending, even after years of reading about this: GR is not compatible with quantum mechanics. The two most successful physical theories humans have ever produced — one describes the very large, one describes the very small — cannot both be right. At the Planck scale, both break down.' },
+      { type: 'para', text: 'A complete theory of quantum gravity — something that unifies GR and QM — is the biggest open problem in fundamental physics. String theory, loop quantum gravity, causal dynamical triangulations — these are attempts, but none is confirmed. The universe, it turns out, is still keeping its deepest secrets. I find that enormously motivating.' },
+      { type: 'divider' },
+      { type: 'para', text: 'If you want to go deeper, the best non-mathematical treatment I\'ve found is "Relativity Visualized" by Lewis Carroll Epstein — it builds genuine geometric intuition without calculus. For the actual equations, Sean Carroll\'s "Spacetime and Geometry" is rigorous and beautifully written. But honestly: start with the thought experiments. Einstein himself said that imagination is more important than knowledge. He wasn\'t wrong.' },
+    ],
   },
   {
     id: 'b4',
